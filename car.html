@@ -1,0 +1,1874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUTO ROAD PROJECT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <style>
+        /* RESET AND BASE STYLES */
+        * {
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* NAVIGATION */
+        nav {
+            background-color: #eea404;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #fff;
+            font-size: 28px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .logo:hover {
+            color: #f8f8f8;
+        }
+
+        .nav-link {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-link a {
+            color: #fff;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .nav-link a:hover {
+            color: #f0f0f0;
+        }
+
+        .nav-link a:hover::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #fff;
+        }
+
+        /* HERO SECTION - CHANGED TO .hero-section CLASS */
+        .hero-section {
+            background-image: url(car\ images/ferrari.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .left {
+            padding: 30px;
+        }
+
+        h11 {
+            color: #fff;
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        p1 {
+            color: #fff;
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        p2 {
+            color: #eea404;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        /* BOOKING FORM */
+        .right {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h41 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 25px;
+            text-align: center;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eea404;
+        }
+
+        .aligned-labels-form {
+            width: 100%;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #333;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #eea404;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        .right button[type="submit"] {
+            width: 100%;
+            padding: 15px;
+            background-color: #eea404;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        .right button[type="submit"]:hover {
+            background-color: #d18c00;
+        }
+
+        /* CAR SEARCH FORM */
+        .form-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 40px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h5 {
+            color: #eea404;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .form-container form {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            align-items: end;
+        }
+
+        .form-container label {
+            display: block;
+            color: #333;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .form-container select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            background: #fff;
+        }
+
+        .form-container button {
+            grid-column: 1 / -1;
+            padding: 15px;
+            background-color: #eea404;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        .form-container button:hover {
+            background-color: #d18c00;
+        }
+
+        /* SERVICES SECTION */
+        .contain {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .contain h3 {
+            color: #eea404;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .contain h1 {
+            color: #333;
+            font-size: 42px;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .rw {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .Service {
+            padding: 30px;
+            text-align: center;
+            border: 2px solid #eea404;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            background: #fff;
+        }
+
+        .Service:hover {
+            background: #eea404;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(238, 164, 4, 0.2);
+        }
+
+        .Service i {
+            font-size: 40px;
+            color: #eea404;
+            margin-bottom: 20px;
+            transition: color 0.3s;
+        }
+
+        .Service:hover i {
+            color: #fff;
+        }
+
+        .Service h2 {
+            color: #eea404;
+            font-size: 20px;
+            margin-bottom: 15px;
+            transition: color 0.3s;
+        }
+
+        .Service:hover h2 {
+            color: #fff;
+        }
+
+        .Service p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            transition: color 0.3s;
+        }
+
+        .Service:hover p {
+            color: #fff;
+        }
+
+        /* CARS SECTION */
+        h6 {
+            color: #eea404;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+            margin: 60px 0 10px;
+        }
+
+        h21 {
+            color: #333;
+            font-size: 42px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .card-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .my-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .my-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .img-box {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .my-card:hover .img-box img {
+            transform: scale(1.1);
+        }
+
+        .price-tag {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: #ff3b3b;
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .car-name {
+            padding: 20px 20px 5px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .model-name {
+            padding: 0 20px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .btn-row {
+            padding: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .my-btn {
+            flex: 1;
+            padding: 10px;
+            background: #fff;
+            border: 2px solid #eea404;
+            color: #333;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .my-btn:hover {
+            background: #eea404;
+            color: #fff;
+        }
+
+        /* HOW IT WORKS SECTION */
+        .workflow-section {
+            position: relative;
+            background: url(car\ images/bmw\ black\ background.jpg) no-repeat center/cover;
+            padding: 100px 20px;
+            margin-top: 80px;
+        }
+
+        .workflow-section .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .workflow-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .workflow-content h4 {
+            color: #fff;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .workflow-content h1 {
+            color: #fff;
+            font-size: 42px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .workflow-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .workflow-box {
+            text-align: center;
+            color: #fff;
+        }
+
+        .icon-circle {
+            width: 100px;
+            height: 100px;
+            border: 2px solid #eea404;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 36px;
+        }
+
+        .workflow-box h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .workflow-box p {
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        /* TESTIMONIALS SECTION */
+        h6 + h6 {
+            color: #eea404;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+            margin: 80px 0 10px;
+        }
+
+        h5 {
+            color: #333;
+            font-size: 42px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .testimony-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 40px;
+        }
+
+        .testimony-card {
+            flex: 0 0 300px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            scroll-snap-align: start;
+        }
+
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 3px solid #eea404;
+        }
+
+        .name {
+            color: #333;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .role {
+            color: #eea404;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .testimony {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* ABOUT SECTION */
+        .abt-container {
+            max-width: 1200px;
+            margin: 100px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .first-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .content h2 {
+            color: #eea404;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .content h1 {
+            color: #333;
+            font-size: 36px;
+            margin-bottom: 25px;
+            line-height: 1.3;
+        }
+
+        .content p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .abt-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: #eea404;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .abt-button:hover {
+            background-color: #d18c00;
+        }
+
+        /* BLOG SECTION */
+        h1:last-of-type {
+            color: #333;
+            font-size: 42px;
+            text-align: center;
+            margin: 80px 0 40px;
+        }
+
+        .blog-card {
+            max-width: 1000px;
+            margin: 30px auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-image {
+            height: 300px;
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .blog-content h2 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .blog-content p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .read-more {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #eea404;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            align-self: flex-start;
+        }
+
+        .read-more:hover {
+            background-color: #d18c00;
+        }
+
+        /* FOOTER SECTION */
+        footer {
+            background-color: #2d2e33;
+            padding: 60px 20px 30px;
+            margin-top: 100px;
+        }
+
+        .footer-col {
+            width: 20%;
+            padding: 0 15px;
+        }
+
+        footer .footer-col:first-child {
+            width: 25%;
+        }
+
+        footer .footer-col:last-child {
+            width: 15%;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background: #eea404;
+        }
+
+        .footer-col p,
+        .footer-col a {
+            color: #bdb6b6;
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            text-decoration: none;
+            transition: color 0.3s;
+            display: block;
+        }
+
+        .footer-col ul li a:hover {
+            color: #eea404;
+            padding-left: 5px;
+        }
+
+        .link {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .link a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .link a:hover {
+            background: #eea404;
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            width: 100%;
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .copyright p {
+            color: #bdb6b6;
+            font-size: 14px;
+        }
+
+        .heart {
+            color: #ff3b3b;
+            margin: 0 5px;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Additional CSS for car selection */
+        .car-selected {
+            border: 4px solid #4CAF50 !important;
+            box-shadow: 0 0 20px rgba(76, 175, 80, 0.5) !important;
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+        
+        .selected-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #4CAF50;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            z-index: 10;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .car-search-highlight {
+            animation: highlight 2s ease;
+        }
+        
+        @keyframes highlight {
+            0% { background-color: rgba(238, 164, 4, 0.1); }
+            100% { background-color: transparent; }
+        }
+        
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 40px;
+            color: #ff3b3b;
+            font-size: 18px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        /* Active nav link styling */
+        .nav-link a.active {
+            color: #fff !important;
+            font-weight: bold;
+            border-bottom: 2px solid #fff;
+        }
+        
+        /* Form improvements */
+        .form-container .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-container button i {
+            margin-right: 10px;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 1200px) {
+            .card-container,
+            .workflow-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .form-container form {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .section-box,
+            .abt-container,
+            .blog-card {
+                grid-template-columns: 1fr;
+            }
+            
+            .rw {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .card-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .workflow-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+            
+            .footer-col {
+                width: 33.333%;
+                margin-bottom: 30px;
+            }
+            
+            footer .footer-col:first-child,
+            footer .footer-col:last-child {
+                width: 33.333%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav-link {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            .rw {
+                grid-template-columns: 1fr;
+            }
+            
+            .card-container,
+            .workflow-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-container form {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-col {
+                width: 50%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            h11 {
+                font-size: 36px;
+            }
+            
+            .contain h1,
+            h21,
+            h5,
+            h1:last-of-type {
+                font-size: 32px;
+            }
+            
+            .footer-col {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .footer-col h4::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .link {
+                justify-content: center;
+            }
+            
+            .form-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+  <!--NAVIGATION-->
+    <nav>
+        <div class="navbar">
+            <div class="logo">AUTOROAD</div>
+            <div class="nav-link">
+                <a href="#home" class="active">Home</a>
+                <a href="#about">About</a>
+                <a href="#our-services">Our Services</a>
+                <a href="#our-car">Our Cars</a>
+                <a href="#blog">Blog</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+     <!--BACKGROUND SECTION - CHANGED TO .hero-section CLASS -->
+    <div class="hero-section" id="home">
+        <div class="container">
+        <div class="section-box">
+            <div class="left">
+                <h11>Now <br>It's easy for <br>You<br>rent a car</h11>
+                <p1>A small river named Duden flows by<br>
+                   their place and supplies it with the<br>
+                   necessary regelialia. it is a <br>
+                   paradisematic country,in which<br>
+                   roasted parts</p1>
+                <p2>---Easy steps for renting a car</p2>
+            </div>
+            <div class="right">
+            <h41>Make your trip</h41>
+             <form id="tripForm" class="aligned-labels-form">
+                <div class="form-group">
+                    <Label>PICK UP LOCATION</Label>
+                    <input type="text" class="field" id="pickupLocation" placeholder="City, Airport, Station, etc" required>
+                </div>
+                 <div class="form-group">
+                    <Label>DROP-OFF LOCATION</Label>
+                    <input type="text" class="field" id="dropoffLocation" placeholder="City, Airport, Station, etc" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                    <Label>PICK-UP DATE</Label>
+                    <input type="date" class="field" id="pickupDate" required>
+                </div>
+                <div class="form-group">
+                    <Label>DROP-OFF DATE</Label>
+                    <input type="date" class="field" id="dropoffDate" required>
+                </div>
+                </div>
+                <div class="form-group">
+                    <Label>PICK-UP TIME</Label>
+                    <input type="time" class="field" id="pickupTime" required>
+                </div>
+                <button type="submit">Search Vehicle</button>
+            </form>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!--CAR SEARCH SECTION-->
+<div class="form-container" id="car-search-section">
+        <h5>Find Your Perfect Car</h5>
+        <form id="carSearchForm">
+            <div class="form-group">
+                <label>Select Brand</label>
+                <select id="brandSelect">
+                    <option value="">All Brands</option>
+                    <option value="Peugeot">Peugeot</option>
+                    <option value="Ferrari">Ferrari</option>
+                    <option value="Lexus">Lexus</option>
+                    <option value="Range Rover">Range Rover</option>
+                    <option value="Toyota">Toyota</option>
+                    <option value="Tesla">Tesla</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Select Model</label>
+                <select id="modelSelect">
+                    <option value="">All Models</option>
+                    <option value="Peugeot 504">Peugeot 504</option>
+                    <option value="Ferrari Purosangue">Ferrari Purosangue</option>
+                    <option value="Lexus LC500">Lexus LC500</option>
+                    <option value="Range Rover Sport">Range Rover Sport</option>
+                    <option value="Range Rover">Range Rover</option>
+                    <option value="Toyota Land Cruiser">Toyota Land Cruiser</option>
+                    <option value="Peugeot 505">Peugeot 505</option>
+                    <option value="Cybertruck 2024">Cybertruck 2024</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Year Model</label>
+                <select id="yearSelect">
+                    <option value="">All Years</option>
+                    <option value="2025">2025</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                    <option value="2017">2017</option>
+                    <option value="2016">2016</option>
+                    <option value="2015">2015</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Price Limit</label>
+                <select id="priceSelect">
+                    <option value="">All Prices</option>
+                    <option value="450000">Up to $450,000</option>
+                    <option value="500000">Up to $500,000</option>
+                    <option value="550000">Up to $550,000</option>
+                    <option value="600000">Up to $600,000</option>
+                    <option value="700000">Up to $700,000</option>
+                    <option value="800000">Up to $800,000</option>
+                    <option value="880000">Up to $880,000</option>
+                    <option value="900000">Up to $900,000</option>
+                    <option value="1000000">Up to $1,000,000</option>
+                </select>
+            </div>
+
+            <button type="submit" id="searchCarBtn">
+                <i class="fas fa-search"></i> Search Car
+            </button>
+        </form>
+    </div>
+
+    <!--OUR SERVICES SECTION-->
+<div class="contain" id="our-services">
+        <h3>OUR SERVICES</h3>
+        <h1>Our Services</h1>
+    <div class="rw">
+        <div class="Service">
+            <i class="fa-solid fa-car"></i>
+            <h2>24/7 Car Sales</h2>
+            <p>Get access to a wide range of quality cars-Tokunbo,brand new, and Nigerian-used vehicles. all cars are inspected,certified and ready for purchase at the best prices. We help you choose the perfect ride that fits your style and budget.</p> 
+        </div>
+        <div class="Service">
+            <i class="fa-solid fa-car-side"></i>
+            <h2>Car Rental(Short & Long Term)</h2>
+            <p>Need a car for a day, week, event or travel? Rent from our fleet of clean well-maintained vehicles. From economy cars to luxury SUVs, you enjoy comfort,safety, and affordability</p>
+        </div>
+
+        <div class="Service">
+            <i class="fa-solid fa-car-on"></i>
+            <h2>Luxury & Executive Ride Hire</h2>
+            <p>For weddings, VIP events, business meetings, airport pickups, or special occasions-book a premium ride with a professional driver. Arrive in style and class.</p>
+         </div>
+
+         <div class="Service">
+            <i class="fa-solid fa-arrows-rotate"></i>
+            <h2>Car Swap/Trade-in</h2>
+            <p>Upgrade your car easily. Bring your old car and swap it for a newer model. We offer fair valuation and seamless transaction</p>
+        </div>
+
+        <div class="Service">
+            <i class="fa-solid fa-search"></i>
+            <h2>Car Inspection & Verification</h2>
+            <p>Before you buy,we help you verify the car's history, condition and documentation. Prevent fraud and buy with confidence</p>
+        </div>
+
+        <div class="Service">
+            <i class="fa-solid fa-hand-holding-dollar"></i>
+            <h2>Car Financing/Installment Payment</h2>
+            <p>Own your dream car with flexible payment plans. We partner with financial institutions to make car ownership easier and stress-free</p>
+        </div>
+
+        <div class="Service">
+            <i class="fa-solid fa-user-tie"></i>
+            <h2>Chauffeur Services</h2>
+            <p>Hire trained, experienced and professional drivers for your trips. Safe, reliable and 100% customer-focused service.</p>
+        </div>
+
+        <div class="Service">
+            <i class="fa-solid fa-calendar-check"></i>
+            <h2>Car Booking for Events</h2>
+            <p>Whether it's a wedding, birthday, corporate event or photoshoot, we offer stylish cars for rent,complete with decoration options if needed</p>
+        </div>
+
+        <div class="Service">
+            <i class="fa-solid fa-file-signature"></i>
+            <h2>Vehicle Registration & Documentation</h2>
+            <p>Let us handle all the stress related to plate numbers,insurance, renewal and vehicle registration. Fast and reliable processing</p>
+        </div>
+    </div>
+     </div>
+
+     <!--CARS SECTION-->
+     <h6>WHAT WE OFFER</h6>
+    <h21 id="our-car">Choose Your Car</h21>
+    <div class="card-container" id="carResults">
+        <!-- Car cards will be populated by JavaScript -->
+    </div>
+
+    <!--HOW IT WORKS SECTION-->
+<section class="workflow-section">
+        <div class="overlay"></div>
+        <div class="workflow-content">
+            <h4>WORK FLOW</h4>
+            <h1>How it works</h1>
+            <div class="workflow-container">
+                <div class="workflow-box">
+                    <div class="icon-circle">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <h3>Pick Destination</h3>
+                    <p>Choose your <br>preferred travel<br>destination<br>with ease using our<br>intuision platform.</p>
+                </div>
+                <div class="workflow-box">
+                    <div class="icon-circle">
+                        <i class="fas fa-hand-pointer"></i>
+                    </div>
+                    <h3>Select Term</h3>
+                    <p>Select your<br>rental duration <br>or travel <br>schedule that best<br>fits your journey</p>
+                </div>
+                <div class="workflow-box">
+                    <div class="icon-circle">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>Choose a Car</h3>
+                    <p>Browse from a <br>wide range of <br>luxury and <br>affordable cars<br>tailored to your needs.</p>
+                </div>
+                <div class="workflow-box">
+                    <div class="icon-circle">
+                        <i class="fas fa-smile-beam"></i>
+                    </div>
+                    <h3>Enjoy the Ride</h3>
+                    <p>Hit the road <br>with comfort, <br>confidence and style.<br>Your satisfaction<br>is guaranteed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--TESTIMONY SECTION-->
+    <h6>Testimonies</h6>
+    <h5>Happy Clients</h5>
+    <div class="testimony-container">
+        <div class="testimony-card">
+            <img src="car images/team.jpg" class="profile-pic" alt="Olutola Deborah">
+             <h3 class="name">Olutola Deborah</h3>
+             <p class="role">Business Woman</p>
+                <p class="testimony">This car brand gave me the smoothest experience ever. From inspection to delivery, everything was perfect.</p>
+        </div>
+        <div class="testimony-card">
+            <img src="car images/customer.png" class="profile-pic" alt="Mrs. Joseph M. Gloria">
+             <h3 class="name">Mrs. Joseph M. Gloria</h3>
+             <p class="role">Fashion Designer</p>
+                <p class="testimony">I rented a car for my event and it was outstanding. Clean, affordable and classy.</p>
+        </div>
+        <div class="testimony-card">
+            <img src="car images/ride.png" class="profile-pic" alt="Michael Osas">
+             <h3 class="name">Michael Osas</h3>
+             <p class="role">Software Developer</p>
+                <p class="testimony">Professional service, no stress, no hidden charges. I highly recommend them.</p>
+        </div>
+        <div class="testimony-card">
+            <img src="car images/desti.jpeg" class="profile-pic" alt="Esther B. Loveth">
+             <h3 class="name">Esther B. Loveth</h3>
+             <p class="role">Makeup Artist</p>
+                <p class="testimony">They helped me pick the perfect car for my photoshoot. Excellent customer service.</p>
+        </div>
+        <div class="testimony-card">
+            <img src="car images/deb.jpg" class="profile-pic" alt="Dr. Tunde Mark">
+             <h3 class="name">Dr. Tunde Mark</h3>
+             <p class="role">Entrepreneur</p>
+                <p class="testimony">Fast delivery, neat cars, and very friendly staff. I'm definitely coming back.</p>
+            </div>
+    </div>
+
+    <!--ABOUT SECTION-->
+<section class="abt-container" id="about">
+        <div class="first-image">
+        <img src="car images/peugeot.jpg" alt="Peugeot Car">
+        </div>
+    <div class="content">
+        <h2>ABOUT US</h2> 
+        <h1>Choose A <br>Perfect Car</h1>
+        <p>Welcome to AUTOROAD, your trusted partner in premium car sales and car rental services. We are more than just a car company, we are a brand built on excellence, integrity and a deep passion for connecting people with vehicles that elevate their lifestyle, comfort, and mobility.<br><br>
+
+            At AUTOROAD, we understand that a car is more than a machine; it is an extension of your personality, a companion for life's journey and a symbol of freedom. Whether you are searching for a luxury ride, a reliable everyday vehicle, or a stylish car for a special occasion, we aare here to make your journey seamless and satisfying.<br><br>
+
+            AUTOROAD was founded with the vision of redefining automotive service in Nigeria, AUTOROAD has grown into a reputable and customer-focused brand known for professionalism, transparency, and quality. Our team consists of passionate automobile experts dedicated to ensuring that every client gets the best value for their money, whether you are buying or renting.<br><br>
+            Over the years, we have built strong relationship with trusted suppliers and verified car owners, giving you access to a wide range of vehicles that meet international standards of safety, comfort and performance.     
+        </p>
+       <button class="abt-button" type="button" id="searchVehicleBtn">SEARCH VEHICLE</button>
+        </div>
+    </div>
+    </section>
+
+    <!--BLOG SECTION-->
+    <h1 id="blog">Read Our Blog</h1>
+    <div class="blog-card">
+        <div class="blog-image">
+            <img src="car images/lexus.jpg" alt="Lexus LC 500">
+        </div>
+        <div class="blog-content">
+            <h2>2024 Lexus LC 500-Pure Luxury on Wheels</h2>
+            <p>The 2024 Lexus LC 500 brings luxury, class, and exceptional performance into one stunning machine. Its V8 engine, premium leather interior, and sharp design make it one of the most exciting luxury coupes of the year.</p>
+            <a href="#" class="read-more">Read More</a>
+        </div>
+    </div>
+
+    <div class="blog-card">
+        <div class="blog-image">
+            <img src="car images/range.jpg" alt="Range Rover Sport 2023">
+        </div>
+        <div class="blog-content">
+            <h2>Range Rover Sport 2023-Born for Every Terrain</h2>
+            <p>The new Range Rover Sport delivers unmatched comfort, powerful off-road capability, and refined technology. Whether on city roads or rough terrains, it maintains its authority and elegance.</p>
+            <a href="#" class="read-more">Read More</a>
+        </div>
+    </div>
+
+     <div class="blog-card">
+        <div class="blog-image">
+            <img src="car images/toyota 2.jpg" alt="Toyota Land Cruiser 2024">
+        </div>
+        <div class="blog-content">
+            <h2>Toyota Land Cruiser 2024-Strength Meets Reliability</h2>
+            <p>Built for the toughest journeys, the 2024 Land Cruiser features improved suspension, a stronger body structure, and updated safety systems. A true definition of durability and adventure.</p>
+            <a href="#" class="read-more">Read More</a>
+        </div>
+    </div>
+
+<!--FOOTER SECTION-->
+<footer id="contact">
+    <div class="footer-col">
+        <h4>About <br> Autoroad</h4>
+        <p>At AUTOROAD, we understand that a car is more than a machine; it is an extension of your personality, a companion for life's journey and a symbol of freedom.</p>
+    </div>
+    <div class="footer-col">
+        <h4>Information</h4>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#our-services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#our-car">Our Cars</a></li>
+            <li><a href="#blog">Blog</a></li>
+        </ul>
+    </div>
+    <div class="footer-col">
+        <h4>Customer<br>Support</h4>
+        <ul>
+            <li><a href="#contact">FAQ</a></li>
+            <li><a href="#contact">Payment Options</a></li>
+            <li><a href="#contact">Booking Tips</a></li>
+            <li><a href="#contact">How it works</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </div>
+    <div class="footer-col">
+        <h4>Have a Questions?</h4>
+        <p><i class="fas fa-map-marker-alt"></i> Address: Zone 6, Olorunshogo Quarters, Ado-Ekiti</p>
+        <p><i class="fas fa-phone"></i> +234 7039182247</p>
+        <p><i class="fas fa-envelope"></i> Email: ifeoluwadebby0170@gmail.com</p>
+    </div>
+    <div class="footer-col">
+        <div class="link">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>Copyright &copy; <span id="currentYear"></span> All rights reserved | This website is made with<span class="heart">&hearts;</span>by Ifeoluwadebby</p>
+    </div>
+</footer>
+
+    <!-- JavaScript -->
+    <script>
+ // Car data array
+        const carData = [
+            {
+                id: 1,
+                name: "Peugeot 504",
+                brand: "Peugeot",
+                year: "2020",
+                price: "500000",
+                image: "car images/peugeot.jpg",
+                model: "2020 Model"
+            },
+            {
+                id: 2,
+                name: "Ferrari Purosangue",
+                brand: "Ferrari",
+                year: "2019",
+                price: "450000",
+                image: "car images/ferrari.jpg",
+                model: "2019 Model"
+            },
+            {
+                id: 3,
+                name: "Lexus LC500",
+                brand: "Lexus",
+                year: "2025",
+                price: "800000",
+                image: "car images/lexus.jpg",
+                model: "2025 Model"
+            },
+            {
+                id: 4,
+                name: "Range Rover Sport",
+                brand: "Range Rover",
+                year: "2020",
+                price: "700000",
+                image: "car images/range.jpg",
+                model: "2020 Model"
+            },
+            {
+                id: 5,
+                name: "Range Rover",
+                brand: "Range Rover",
+                year: "2017",
+                price: "550000",
+                image: "car images/range 2.jpg",
+                model: "2017 Model"
+            },
+            {
+                id: 6,
+                name: "Toyota Land Cruiser",
+                brand: "Toyota",
+                year: "2015",
+                price: "900000",
+                image: "car images/lexus 1.jpg",
+                model: "2015 Model"
+            },
+            {
+                id: 7,
+                name: "Peugeot 505",
+                brand: "Peugeot",
+                year: "2016",
+                price: "880000",
+                image: "car images/toyota.jpg",
+                model: "2016 Model"
+            },
+            {
+                id: 8,
+                name: "Cybertruck 2024",
+                brand: "Tesla",
+                year: "2024",
+                price: "900000",
+                image: "car images/cybertruck.jpg",
+                model: "2024 Model"
+            }
+        ];
+
+        let selectedCar = null;
+
+        // Initialize car display
+        function displayCars(cars, highlightCarId = null) {
+            const carContainer = document.getElementById('carResults');
+            carContainer.innerHTML = '';
+            
+            if (cars.length === 0) {
+                carContainer.innerHTML = '<p class="no-results">No cars found matching your search criteria.</p>';
+                return 0;
+            }
+            
+            cars.forEach(car => {
+                const carCard = document.createElement('div');
+                carCard.className = 'my-card';
+                carCard.id = `car-${car.id}`;
+                
+                // Check if this car should be highlighted/selected
+                const isSelected = (highlightCarId === car.id);
+                
+                if (isSelected) {
+                    carCard.classList.add('car-selected');
+                    selectedCar = car;
+                }
+                
+                carCard.innerHTML = `
+                    ${isSelected ? '<div class="selected-badge">SELECTED CAR</div>' : ''}
+                    <div class="img-box">
+                        <img src="${car.image}" alt="${car.name}" onerror="this.src='https://via.placeholder.com/300x200?text=Car+Image'">
+                        <div class="price-tag">$${parseInt(car.price).toLocaleString()}</div>
+                    </div>
+                    <div class="car-name">${car.name}</div>
+                    <div class="model-name">${car.model}</div>
+                    <div class="btn-row">
+                        <button class="my-btn book-btn" data-car='${JSON.stringify(car)}'>
+                            <span>Book </span><span>Now</span>
+                        </button>
+                        <button class="my-btn details-btn" data-car='${JSON.stringify(car)}'>
+                            Details
+                        </button>
+                    </div>
+                `;
+                carContainer.appendChild(carCard);
+            });
+            
+            // Re-attach event listeners after rendering
+            attachCarButtonListeners();
+            return cars.length;
+        }
+
+        // Search cars based on filters and return matching cars
+        function searchCars() {
+            const brand = document.getElementById('brandSelect').value;
+            const model = document.getElementById('modelSelect').value;
+            const year = document.getElementById('yearSelect').value;
+            const price = document.getElementById('priceSelect').value;
+            
+            let filteredCars = carData;
+            
+            // Apply brand filter
+            if (brand) {
+                filteredCars = filteredCars.filter(car => 
+                    car.brand.toLowerCase() === brand.toLowerCase()
+                );
+            }
+            
+            // Apply model filter
+            if (model) {
+                filteredCars = filteredCars.filter(car => 
+                    car.name.toLowerCase() === model.toLowerCase()
+                );
+            }
+            
+            // Apply year filter
+            if (year) {
+                filteredCars = filteredCars.filter(car => car.year === year);
+            }
+            
+            // Apply price filter
+            if (price) {
+                filteredCars = filteredCars.filter(car => parseInt(car.price) <= parseInt(price));
+            }
+            
+            return filteredCars;
+        }
+
+        // Find exact matching car based on brand and year
+        function findExactMatchCar(brand, year) {
+            return carData.find(car => 
+                car.brand.toLowerCase() === brand.toLowerCase() && 
+                car.year === year
+            );
+        }
+
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Trip form submission
+        document.getElementById('tripForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const pickupLocation = document.getElementById('pickupLocation').value;
+            const pickupDate = document.getElementById('pickupDate').value;
+            
+            if (!pickupLocation || !pickupDate) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            // Scroll to car search section
+            document.getElementById('car-search-section').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'center'
+            });
+            
+            // Highlight search section
+            const searchSection = document.getElementById('car-search-section');
+            searchSection.classList.add('car-search-highlight');
+            setTimeout(() => {
+                searchSection.classList.remove('car-search-highlight');
+            }, 2000);
+            
+            // Show instruction alert
+            alert('To select your preferred car, please use the "Car Search" section below.\n\nSelect brand, model, year, and price to find your perfect car match!');
+        });
+
+        // Car search form submission
+        document.getElementById('carSearchForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const brand = document.getElementById('brandSelect').value;
+            const model = document.getElementById('modelSelect').value;
+            const year = document.getElementById('yearSelect').value;
+            const price = document.getElementById('priceSelect').value;
+            
+            // Clear previous selection
+            selectedCar = null;
+            
+            // If brand and year are selected, try to find exact match
+            if (brand && year) {
+                const exactMatchCar = findExactMatchCar(brand, year);
+                
+                if (exactMatchCar) {
+                    // Display all cars but highlight the exact match
+                    const allCars = carData;
+                    const count = displayCars(allCars, exactMatchCar.id);
+                    
+                    // Scroll to the selected car
+                    setTimeout(() => {
+                        document.getElementById(`car-${exactMatchCar.id}`).scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'center'
+                        });
+                    }, 500);
+                    
+                    // Show success message
+                    alert(`✅ Perfect Match Found!\n\nWe found the exact car you're looking for:\n\n` +
+                          `• Brand: ${exactMatchCar.brand}\n` +
+                          `• Model: ${exactMatchCar.name}\n` +
+                          `• Year: ${exactMatchCar.year}\n` +
+                          `• Price: $${parseInt(exactMatchCar.price).toLocaleString()}\n\n` +
+                          `This car has been selected for you! Click "Book Now" to reserve it.`);
+                    return;
+                } else {
+                    // If no exact match found, show warning and continue with filtered search
+                    alert(`⚠️ No exact match found for ${brand} ${year}\n\nWe'll show you similar available cars instead.`);
+                }
+            }
+            
+            // Regular filtered search
+            const filteredCars = searchCars();
+            const count = displayCars(filteredCars);
+            
+            if (count > 0) {
+                // Scroll to car section
+                document.getElementById('our-car').scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                
+                // Show search results summary
+                let summary = `Found ${count} car(s) matching your search:\n`;
+                if (brand) summary += `• Brand: ${brand}\n`;
+                if (model) summary += `• Model: ${model}\n`;
+                if (year) summary += `• Year: ${year}\n`;
+                if (price) summary += `• Price: Up to $${parseInt(price).toLocaleString()}\n`;
+                
+                if (count === 1) {
+                    summary += `\nThis car has been automatically selected for you!`;
+                    // Select the single car
+                    selectedCar = filteredCars[0];
+                    const carCard = document.getElementById(`car-${selectedCar.id}`);
+                    if (carCard) {
+                        carCard.classList.add('car-selected');
+                        const imgBox = carCard.querySelector('.img-box');
+                        imgBox.insertAdjacentHTML('afterbegin', '<div class="selected-badge">SELECTED CAR</div>');
+                    }
+                }
+                
+                alert(summary);
+            } else {
+                // No cars found
+                alert(`❌ No cars found matching your search criteria.\n\nPlease try different filters or contact us for more options.\n\nYou searched for:\n` +
+                      (brand ? `• Brand: ${brand}\n` : '') +
+                      (model ? `• Model: ${model}\n` : '') +
+                      (year ? `• Year: ${year}\n` : '') +
+                      (price ? `• Price: Up to $${parseInt(price).toLocaleString()}\n` : ''));
+                
+                // Show all cars as alternatives
+                setTimeout(() => {
+                    alert('Showing all available cars as alternatives...');
+                    displayCars(carData);
+                    document.getElementById('our-car').scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }, 1000);
+            }
+        });
+
+        // Attach event listeners to car buttons
+        function attachCarButtonListeners() {
+            // Book Now button functionality
+            document.querySelectorAll('.book-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const carData = JSON.parse(this.getAttribute('data-car'));
+                    
+                    // Get trip details from the main form
+                    const pickupLocation = document.getElementById('pickupLocation').value || 'Not specified';
+                    const pickupDate = document.getElementById('pickupDate').value || 'Not specified';
+                    const dropoffDate = document.getElementById('dropoffDate').value || 'Not specified';
+                    const pickupTime = document.getElementById('pickupTime').value || 'Not specified';
+                    
+                    const bookingDetails = `
+🚗 CAR BOOKING CONFIRMATION 🚗
+
+Selected Car Details:
+• Car: ${carData.name}
+• Brand: ${carData.brand}
+• Year: ${carData.year}
+• Price: $${parseInt(carData.price).toLocaleString()}/day
+
+Trip Details:
+• Pickup Location: ${pickupLocation}
+• Pickup Date: ${pickupDate} at ${pickupTime}
+• Return Date: ${dropoffDate}
+
+Total Estimated Cost: $${(parseInt(carData.price) * 1).toLocaleString()}
+
+Would you like to confirm this booking?
+                    `;
+                    
+                    if (confirm(bookingDetails)) {
+                        alert(`✅ BOOKING CONFIRMED!\n\nThank you for choosing AUTOROAD!\n\nBooking Reference: AR-${Date.now()}\nCar: ${carData.name}\nPickup: ${pickupDate} at ${pickupLocation}\n\nOur team will contact you within 24 hours to finalize details.`);
+                        
+                        // Reset form
+                        document.getElementById('tripForm').reset();
+                        document.getElementById('carSearchForm').reset();
+                        
+                        // Reset car selection
+                        document.querySelectorAll('.my-card').forEach(card => {
+                            card.classList.remove('car-selected');
+                            const badge = card.querySelector('.selected-badge');
+                            if (badge) badge.remove();
+                        });
+                        
+                        selectedCar = null;
+                    }
+                });
+            });
+
+            // Details button functionality
+            document.querySelectorAll('.details-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const carData = JSON.parse(this.getAttribute('data-car'));
+                    
+                    const details = `
+🚗 CAR DETAILS 🚗
+
+Basic Information:
+• Name: ${carData.name}
+• Brand: ${carData.brand}
+• Year: ${carData.year}
+• Model: ${carData.model}
+• Daily Rate: $${parseInt(carData.price).toLocaleString()}
+
+Features:
+• Luxury leather interior
+• Premium sound system
+• GPS navigation
+• Climate control
+• Advanced safety features
+• Fuel efficient engine
+• Bluetooth connectivity
+• Rear view camera
+
+Additional Information:
+• Available for immediate booking
+• Insurance included
+• 24/7 roadside assistance
+• Free cancellation within 24 hours
+
+Click 'Book Now' to reserve this car!
+                    `;
+                    
+                    alert(details);
+                });
+            });
+        }
+
+        // Search Vehicle button in About section
+        document.getElementById('searchVehicleBtn').addEventListener('click', function() {
+            // Scroll to search section
+            document.getElementById('car-search-section').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'center'
+            });
+            
+            // Highlight search section
+            const searchSection = document.getElementById('car-search-section');
+            searchSection.classList.add('car-search-highlight');
+            setTimeout(() => {
+                searchSection.classList.remove('car-search-highlight');
+            }, 2000);
+            
+            alert('Use the Car Search form to find your perfect vehicle!\n\nSelect your preferred brand, model, year, and price range to see available options.');
+        });
+
+        // Read More links in blog
+        document.querySelectorAll('.read-more').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const blogTitle = this.closest('.blog-content').querySelector('h2').textContent;
+                alert(`📖 BLOG ARTICLE\n\nTitle: ${blogTitle}\n\nThis article would provide detailed information about this vehicle, including:\n• Full specifications\n• Performance details\n• Customer reviews\n• Comparison with similar models\n\nContact us for more information or to schedule a test drive!`);
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                
+                if (targetId.startsWith('#')) {
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        // Update active nav link
+                        document.querySelectorAll('nav a').forEach(a => {
+                            a.classList.remove('active');
+                        });
+                        this.classList.add('active');
+                        
+                        // Scroll to target
+                        targetElement.scrollIntoView({ 
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Set min date for date inputs to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('pickupDate').min = today;
+        document.getElementById('dropoffDate').min = today;
+
+        // Initialize date inputs with tomorrow's date
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        const tomorrowStr = tomorrow.toISOString().split('T')[0];
+        document.getElementById('pickupDate').value = tomorrowStr;
+        document.getElementById('dropoffDate').value = tomorrowStr;
+
+        // Set default time to 9:00 AM
+        document.getElementById('pickupTime').value = "09:00";
+
+        // Display all cars on page load
+        displayCars(carData);
+
+        // Auto-fill model based on brand selection
+        document.getElementById('brandSelect').addEventListener('change', function() {
+            const brand = this.value;
+            const modelSelect = document.getElementById('modelSelect');
+            
+            if (brand) {
+                // Filter models by brand
+                const brandModels = carData
+                    .filter(car => car.brand === brand)
+                    .map(car => car.name);
+                
+                // Update model options
+                modelSelect.innerHTML = '<option value="">All Models</option>';
+                brandModels.forEach(model => {
+                    modelSelect.innerHTML += `<option value="${model}">${model}</option>`;
+                });
+            } else {
+                // Reset to all models
+                modelSelect.innerHTML = '<option value="">All Models</option>';
+                const allModels = [...new Set(carData.map(car => car.name))];
+                allModels.forEach(model => {
+                    modelSelect.innerHTML += `<option value="${model}">${model}</option>`;
+                });
+            }
+        });
+
+        // Initialize model options
+        const allModels = [...new Set(carData.map(car => car.name))];
+        const modelSelect = document.getElementById('modelSelect');
+        allModels.forEach(model => {
+            modelSelect.innerHTML += `<option value="${model}">${model}</option>`;
+        });
+    </script>
+    
+</body>
+</html>
